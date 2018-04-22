@@ -5,14 +5,15 @@
     s.version          = "1.0.0"
     s.summary          = "Re-usable UI code"
     s.description      = "A collection of re-usable UI code based on UIKit and AppKit"
-    s.homepage         = "https://flowtoolz.com"
+    s.homepage         = "http://flowtoolz.com"
     s.license          = 'commercial'
     s.author           = { "Flowtoolz" => "contact@flowtoolz.com" }
     s.source           = {  :git => "https://github.com/flowtoolz/UIToolz.git",
                             :tag => s.version.to_s }
     
-    # to be sure
+    # compiler requirements
     s.requires_arc = true
+    s.swift_version = '4.0'
     
     # minimum platform SDKs
     s.platforms = {:ios => "9.0", :osx => "10.10", :tvos => "9.0"}

@@ -1,4 +1,5 @@
 import AppKit
+import SwiftyToolz
 
 public class MessagePresenter: MessageLogDelegate
 {

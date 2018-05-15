@@ -6,7 +6,7 @@
     s.summary          = "Re-usable UI code"
     s.description      = "A collection of re-usable UI code based on UIKit and AppKit"
     s.homepage         = "http://flowtoolz.com"
-    s.license          = 'commercial'
+    s.license          = 'MIT'
     s.author           = { "Flowtoolz" => "contact@flowtoolz.com" }
     s.source           = {  :git => "https://github.com/flowtoolz/UIToolz.git",
                             :tag => s.version.to_s }
@@ -31,4 +31,5 @@
     # dependencies
     s.dependency 'PureLayout', '3.0.2'
     s.dependency 'SwiftyToolz', '1.0.0'
+
 end

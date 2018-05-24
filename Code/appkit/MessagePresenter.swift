@@ -1,6 +1,8 @@
 import AppKit
 import SwiftyToolz
 
+// FIXME: Move this to UIObserver and migrate logging + presenting to SwiftObserver primitives
+/*
 public class MessagePresenter: MessageLogDelegate
 {
     private init() {}
@@ -35,3 +37,4 @@ public class MessagePresenter: MessageLogDelegate
         alert.runModal()
     }
 }
+*/

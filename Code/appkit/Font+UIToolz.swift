@@ -8,7 +8,7 @@ public extension Font
         switch self
         {
         case .system(let size):
-            return NSFont.systemFont(ofSize: CGFloat(size))
+            return .systemFont(ofSize: CGFloat(size))
         
         case .named(let name, let size):
             let cgSize = CGFloat(size)

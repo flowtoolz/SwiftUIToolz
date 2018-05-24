@@ -2,12 +2,22 @@ import AppKit
 
 public extension NSView
 {
+    @discardableResult
+    func makeFirstResponder() -> Bool
+    {
+        if acceptsFirstResponder
+        {
+            return NSApp.mainWindow?.makeFirstResponder(self) ?? false
+        }
+        else
+        {
+            return false
+        }
+    }
+    
     func bringToFront(_ subview: NSView)
     {
-        guard subviews.contains(subview) else
-        {
-            return
-        }
+        guard subviews.contains(subview) else { return }
         
         subview.removeFromSuperview()
         

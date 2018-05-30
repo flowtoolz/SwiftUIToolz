@@ -8,6 +8,7 @@ public extension NSEvent
     {
         case unknown
         case enter = 36
+        case tab = 48
         case space = 49
         case delete = 51
         case left = 123

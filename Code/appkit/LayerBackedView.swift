@@ -7,6 +7,9 @@ open class LayerBackedView: NSView
     {
         super.init(frame: frameRect)
         wantsLayer = true
+        
+        layerContentsRedrawPolicy = .onSetNeedsDisplay
+        layerContentsPlacement = .scaleAxesIndependently
     }
     
     required public init?(coder decoder: NSCoder) { fatalError() }

@@ -20,5 +20,5 @@ public extension NSEvent
     var cmd: Bool { return modifierFlags.contains(.command) }
     var alt: Bool { return modifierFlags.contains(.option) }
     var ctrl: Bool { return modifierFlags.contains(.control) }
-    var shift: Bool { return modifierFlags.contains(.command) }
+    var shift: Bool { return modifierFlags.contains(.shift) }
 }

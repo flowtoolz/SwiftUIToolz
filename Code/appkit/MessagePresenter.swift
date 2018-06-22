@@ -23,18 +23,20 @@ public class MessagePresenter: MessageLogDelegate
         }
     }
     
-    private func showAlert(_ message: String,
-                           _ alertStyle: NSAlert.Style,
-                           _ title: String)
-    {
-        let alert = NSAlert()
-        
-        alert.alertStyle = alertStyle
-        alert.messageText = title
-        alert.informativeText = message
-        alert.addButton(withTitle: "OK")
-        
-        alert.runModal()
-    }
+ 
 }
 */
+
+public func show(alert message: String,
+                 title: String,
+                 style: NSAlert.Style = .informational)
+{
+    let alert = NSAlert()
+    
+    alert.alertStyle = style
+    alert.messageText = title
+    alert.informativeText = message
+    alert.addButton(withTitle: "OK")
+    
+    alert.runModal()
+}

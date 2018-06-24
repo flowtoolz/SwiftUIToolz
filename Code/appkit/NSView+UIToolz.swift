@@ -27,16 +27,14 @@ public extension NSView
 
 public extension NSImageView
 {
-    convenience init(withAspectFillImage image: NSImage)
+    convenience init(withAspectFillImage image: NSImage?)
     {
         self.init(frame: NSRect.zero)
         
-        layer = CALayer()
-        layer?.contentsGravity = kCAGravityResizeAspectFill
-        layer?.contents = image
-        wantsLayer = true
+        self.image = image
         
         imageAlignment = .alignCenter
+        imageScaling = .scaleProportionallyUpOrDown
         
         let priority = NSLayoutConstraint.Priority(rawValue: 0.1)
         setContentCompressionResistancePriority(priority, for: .horizontal)

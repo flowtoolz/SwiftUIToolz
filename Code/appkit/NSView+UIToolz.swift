@@ -14,15 +14,6 @@ public extension NSView
             return false
         }
     }
-    
-    func bringToFront(_ subview: NSView)
-    {
-        guard subviews.contains(subview) else { return }
-        
-        subview.removeFromSuperview()
-        
-        addSubview(subview, positioned: .above, relativeTo: nil)
-    }
 }
 
 public extension NSImageView

@@ -7,12 +7,33 @@ public extension Font
     {
         switch self
         {
-        case .system(let size):
-            return .systemFont(ofSize: CGFloat(size))
+        case .system(let size, let weight):
+        
+            if #available(OSX 10.11, *)
+            {
+                let nsFontWeight: NSFont.Weight =
+                {
+                    switch weight
+                    {
+                    case .light: return .light
+                    case .regular: return .regular
+                    case .bold: return .bold
+                    case .system: return .regular
+                    }
+                }()
+                
+                return .systemFont(ofSize: CGFloat(size), weight: nsFontWeight)
+            }
+            else
+            {
+                return .systemFont(ofSize: CGFloat(size))
+            }
         
         case .named(let name, let size):
-            let cgSize = CGFloat(size)
-            return NSFont(name: name, size: cgSize) ?? .systemFont(ofSize: cgSize)
+            
+            let size = CGFloat(size)
+            
+            return NSFont(name: name, size: size) ?? .systemFont(ofSize: size)
         }
     }
 }

@@ -6,10 +6,13 @@ open class LayerBackedView: NSView
     public override init(frame frameRect: NSRect)
     {
         super.init(frame: frameRect)
+        
         wantsLayer = true
         
         layerContentsRedrawPolicy = .onSetNeedsDisplay
         layerContentsPlacement = .scaleAxesIndependently
+        
+        translatesAutoresizingMaskIntoConstraints = false
     }
     
     required public init?(coder decoder: NSCoder) { fatalError() }

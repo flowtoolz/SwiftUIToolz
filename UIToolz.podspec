@@ -30,6 +30,7 @@
 
     # dependencies
     s.dependency 'PureLayout', '3.0.2'
-    s.dependency 'SwiftyToolz', '1.0.0'
+    s.dependency 'SwiftyToolz'
+    s.dependency 'SwiftObserver'
 
 end

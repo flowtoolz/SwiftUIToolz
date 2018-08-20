@@ -10,7 +10,6 @@ open class LayerBackedView: NSView
         wantsLayer = true
         
         layerContentsRedrawPolicy = .onSetNeedsDisplay
-        layerContentsPlacement = .scaleAxesIndependently
         
         translatesAutoresizingMaskIntoConstraints = false
     }

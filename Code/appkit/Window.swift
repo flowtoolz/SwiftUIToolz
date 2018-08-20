@@ -5,10 +5,12 @@ open class Window: NSWindow
 {
     // MARK: - Initialization
 
-    public init(with contentViewController: NSViewController?)
+    public init(with contentViewController: NSViewController?,
+                color: NSColor = .black)
     {
         let windowStyle: StyleMask = [.resizable,
                                       .titled,
+                                      //.fullSizeContentView,
                                       .miniaturizable,
                                       .closable]
         
@@ -20,9 +22,10 @@ open class Window: NSWindow
                    styleMask: windowStyle,
                    backing: .buffered,
                    defer: false)
-        
+    
         titlebarAppearsTransparent = true
         titleVisibility = .hidden
+        backgroundColor = color
         
         isReleasedWhenClosed = false
         

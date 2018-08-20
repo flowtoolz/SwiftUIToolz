@@ -17,6 +17,8 @@ public extension Font
                     {
                     case .light: return .light
                     case .regular: return .regular
+                    case .medium: return .medium
+                    case .semibold: return .semibold
                     case .bold: return .bold
                     case .system: return .regular
                     }

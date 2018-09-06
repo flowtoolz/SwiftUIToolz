@@ -1,4 +1,4 @@
-import AppKit.NSImageView
+import AppKit
 
 public class Icon: NSImageView
 {
@@ -6,11 +6,14 @@ public class Icon: NSImageView
                 scaling: NSImageScaling = .scaleProportionallyUpOrDown)
     {
         super.init(frame: .zero)
-        
+
+        isEnabled = false
+    
         self.image = image
+        
         imageScaling = scaling
         imageAlignment = .alignCenter
-        
+    
         setContentHuggingPriority(.required, for: .horizontal)
         setContentHuggingPriority(.required, for: .vertical)
     }

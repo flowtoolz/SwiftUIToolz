@@ -6,7 +6,7 @@ open class Window: NSWindow
     // MARK: - Initialization
 
     public init(with contentViewController: NSViewController?,
-                color: NSColor = .black)
+                color: NSColor = .windowBackgroundColor)
     {
         let windowStyle: StyleMask = [.resizable,
                                       .titled,

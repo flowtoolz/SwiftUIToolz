@@ -7,15 +7,15 @@ public class Icon: NSImageView
     {
         super.init(frame: .zero)
 
-        isEnabled = false
-    
         self.image = image
-        
+    
         imageScaling = scaling
         imageAlignment = .alignCenter
     
         setContentHuggingPriority(.required, for: .horizontal)
         setContentHuggingPriority(.required, for: .vertical)
+        
+        isEnabled = false
     }
     
     public required init?(coder: NSCoder) { fatalError() }

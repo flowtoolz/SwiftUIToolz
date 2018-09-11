@@ -229,8 +229,8 @@ extension LayoutItem
                                                   _ relativeHeight: CGFloat,
                                                   of target: Target) -> [NSLayoutConstraint]
     {
-        return [ constrain(.width, to: relativeWidth, of: target),
-                 constrain(.height, to: relativeHeight, of: target) ]
+        return [ constrainWidth(to: relativeWidth, of: target),
+                 constrainHeight(to: relativeHeight, of: target) ]
     }
     
     // MARK: Width
@@ -257,7 +257,7 @@ extension LayoutItem
     public func constrainWidth<Target: LayoutItem>(to relativeSize: CGFloat,
                                                    of target: Target) -> NSLayoutConstraint
     {
-        return constrain(.width, to: relativeSize, of: target)
+        return constrain(.width, to: target, multiplier: relativeSize)
     }
     
     // MARK: Height
@@ -284,7 +284,7 @@ extension LayoutItem
     public func constrainHeight<Target: LayoutItem>(to relativeSize: CGFloat,
                                                     of target: Target) -> NSLayoutConstraint
     {
-        return constrain(.height, to: relativeSize, of: target)
+        return constrain(.height, to: target, multiplier: relativeSize)
     }
     
     // MARK: Size
@@ -317,12 +317,14 @@ extension LayoutItem
     
     @discardableResult
     func constrain<Target: LayoutItem>(_ dimension: Dimension,
-                                       to target: Target) -> NSLayoutConstraint
+                                       to target: Target,
+                                       multiplier: CGFloat = 1) -> NSLayoutConstraint
     {
         let myAnchor = anchor(for: dimension)
         let targetAnchor = target.anchor(for: dimension)
         
-        let constraint = myAnchor.constraint(equalTo: targetAnchor)
+        let constraint = myAnchor.constraint(equalTo: targetAnchor,
+                                             multiplier: multiplier)
         
         constraint.isActive = true
         
@@ -332,26 +334,6 @@ extension LayoutItem
     func anchor(for dimension: Dimension) -> NSLayoutDimension
     {
         return dimension == .width ? widthAnchor : heightAnchor
-    }
-    
-    @discardableResult
-    func constrain<Target: LayoutItem>(_ dimension: Dimension,
-                                       to relativeSize: CGFloat,
-                                       of target: Target) -> NSLayoutConstraint
-    {
-        let attribute = dimension.attribute
-        
-        let constraint = NSLayoutConstraint(item: self,
-                                            attribute: attribute,
-                                            relatedBy: .equal,
-                                            toItem: target,
-                                            attribute: attribute,
-                                            multiplier: relativeSize,
-                                            constant: 0)
-        
-        constraint.isActive = true
-        
-        return constraint
     }
 }
 

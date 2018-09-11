@@ -29,7 +29,6 @@
     s.osx.source_files = 'Code/appkit/**/*.swift'
 
     # dependencies
-    s.dependency 'PureLayout', '3.0.2'
     s.dependency 'SwiftyToolz'
     s.dependency 'SwiftObserver'
 

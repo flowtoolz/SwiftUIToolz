@@ -60,18 +60,16 @@ public class ProgressBar: LayerBackedView
     
     private func constrainProgressIndicator(with widthFactor: CGFloat = 0)
     {
-        progressIndicator.autoPinEdgesToSuperviewEdges(with: NSEdgeInsetsZero,
-                                                       excludingEdge: .right)
-        
+        progressIndicator.constrainTop(to: self)
+        progressIndicator.constrainLeft(to: self)
+        progressIndicator.constrainBottom(to: self)
+
         constrainIndicator(widthFactor: widthFactor)
     }
     
     private func constrainIndicator(widthFactor: CGFloat)
     {
-        widthConstraint = progressIndicator.autoMatch(.width,
-                                                      to: .width,
-                                                      of: self,
-                                                      withMultiplier: widthFactor)
+        widthConstraint = progressIndicator.constrainWidth(to: widthFactor, of: self)
     }
     
     private var widthConstraint: NSLayoutConstraint?

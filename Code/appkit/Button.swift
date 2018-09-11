@@ -1,5 +1,4 @@
 import AppKit
-import PureLayout
 
 public class Button: LayerBackedView
 {
@@ -49,9 +48,9 @@ public class Button: LayerBackedView
     
     private func constrainTitleLabel()
     {
-        titleLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 10)
-        titleLabel.autoPinEdge(toSuperviewEdge: .right, withInset: 10)
-        titleLabel.autoAlignAxis(toSuperviewAxis: .horizontal)
+        titleLabel.constrainLeft(to: self, offset: 10)
+        titleLabel.constrainRight(to: self, offset: -10)
+        titleLabel.constrainCenterY(to: self)
     }
     
     public lazy var titleLabel: Label =

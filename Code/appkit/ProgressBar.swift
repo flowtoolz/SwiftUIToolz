@@ -69,7 +69,8 @@ public class ProgressBar: LayerBackedView
     
     private func constrainIndicator(widthFactor: CGFloat)
     {
-        widthConstraint = progressIndicator.constrainWidth(to: widthFactor, of: self)
+        widthConstraint = progressIndicator.constrainWidth(to: widthFactor,
+                                                           of: self)
     }
     
     private var widthConstraint: NSLayoutConstraint?

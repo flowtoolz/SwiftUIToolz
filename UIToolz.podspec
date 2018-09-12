@@ -29,7 +29,8 @@
     s.osx.source_files = 'Code/appkit/**/*.swift'
 
     # dependencies
-    s.dependency 'SwiftyToolz'
+    s.dependency 'GetLaid'
     s.dependency 'SwiftObserver'
-
+    s.dependency 'SwiftyToolz'
+   
 end

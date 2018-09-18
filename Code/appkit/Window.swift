@@ -52,6 +52,13 @@ open class Window: NSWindow, Observable
     
     deinit { removeObservers() }
     
+    // MARK: - Fullscreen
+    
+    public var isFullscreen: Bool
+    {
+        return styleMask.contains(.fullScreen)
+    }
+    
     // MARK: - Manual Sizing
     
     public func didEndLiveResize()

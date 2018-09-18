@@ -1,7 +1,7 @@
 import AppKit
 import SwiftObserver
 
-open class Window: NSWindow
+open class Window: NSWindow, Observable
 {
     // MARK: - Initialization
 
@@ -50,11 +50,16 @@ open class Window: NSWindow
                       height: screenSize.height * 0.8)
     }()
     
+    deinit { removeObservers() }
+    
     // MARK: - Manual Sizing
     
     public func didEndLiveResize()
     {
-        guard Window.intendedMainWindowSize.value != frame.size else { return }
+        guard Window.intendedMainWindowSize.value != frame.size else
+        {
+            return
+        }
         
         Window.intendedMainWindowSize <- frame.size
     }
@@ -67,6 +72,8 @@ open class Window: NSWindow
     
     public func show(_ show: Bool = true)
     {
+        guard show != isVisible else { return }
+        
         if show
         {
             makeKeyAndOrderFront(self)
@@ -75,6 +82,35 @@ open class Window: NSWindow
         {
             orderOut(self)
         }
+        
+        send(.didChangeVisibility(visible: show))
+    }
+    
+    open override func close()
+    {
+        super.close()
+        send(.didChangeVisibility(visible: false))
+    }
+    
+    open override func miniaturize(_ sender: Any?)
+    {
+        super.miniaturize(sender)
+        send(.didChangeVisibility(visible: false))
+    }
+    
+    open override func deminiaturize(_ sender: Any?)
+    {
+        super.deminiaturize(sender)
+        send(.didChangeVisibility(visible: true))
+    }
+    
+    // MARK: - Observability
+    
+    public var latestUpdate: Event { return .didNothing }
+    
+    public enum Event
+    {
+        case didNothing, didChangeVisibility(visible: Bool)
     }
     
     // MARK: - Avoid Beep from Unprocessed Keys

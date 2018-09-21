@@ -2,7 +2,7 @@ import AppKit
 
 public class Icon: NSImageView
 {
-    public init(with image: NSImage,
+    public init(with image: NSImage? = nil,
                 scaling: NSImageScaling = .scaleProportionallyUpOrDown)
     {
         super.init(frame: .zero)

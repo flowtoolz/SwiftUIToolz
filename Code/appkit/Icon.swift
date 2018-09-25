@@ -2,20 +2,19 @@ import AppKit
 
 public class Icon: NSImageView
 {
-    public init(with image: NSImage? = nil,
-                scaling: NSImageScaling = .scaleProportionallyUpOrDown)
+    public convenience init()
+    {
+        self.init(with: nil)
+    }
+    
+    public init(with image: NSImage?)
     {
         super.init(frame: .zero)
 
         self.image = image
-    
-        imageScaling = scaling
+
         imageAlignment = .alignCenter
-    
-        setContentHuggingPriority(.required, for: .horizontal)
-        setContentHuggingPriority(.required, for: .vertical)
-        
-        isEnabled = false
+        imageScaling = .scaleProportionallyUpOrDown
     }
     
     public required init?(coder: NSCoder) { fatalError() }

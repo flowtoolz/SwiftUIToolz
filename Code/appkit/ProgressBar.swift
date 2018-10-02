@@ -81,11 +81,11 @@ public class ProgressBar: LayerBackedView
         
         view.backgroundColor = Color(0.0, 1.0, 0.0)
         
-        view.shadow = NSShadow()
-        view.layer?.shadowColor = NSColor.black.cgColor
-        view.layer?.shadowOffset = CGSize(width: 15, height: 0)
-        view.layer?.shadowRadius = 15
-        view.layer?.shadowOpacity = 0.5
+//        view.shadow = NSShadow()
+//        view.layer?.shadowColor = NSColor.black.cgColor
+//        view.layer?.shadowOffset = CGSize(width: 15, height: 0)
+//        view.layer?.shadowRadius = 15
+//        view.layer?.shadowOpacity = 0.5
         
         return view
     }()

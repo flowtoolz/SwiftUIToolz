@@ -1,6 +1,6 @@
 import AppKit
 
-public class Icon: NSImageView
+open class Icon: NSImageView
 {
     public convenience init()
     {

@@ -15,6 +15,8 @@ public extension Font
                 {
                     switch weight
                     {
+                    case .ultraLight: return .ultraLight
+                    case .thin: return .thin
                     case .light: return .light
                     case .regular: return .regular
                     case .medium: return .medium

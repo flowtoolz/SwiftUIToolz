@@ -32,8 +32,8 @@ open class AnimatedTableView: NSTableView
         let optionalTargetPosition: CGFloat? =
         {
             let rowRect = rect(ofRow: row)
-            let rowTop = rowRect.origin.y
-            let rowBottom = rowTop + rowRect.size.height
+            let rowTop = rowRect.origin.y - 10
+            let rowBottom = rowRect.origin.y + rowRect.size.height + 10
             let topPosition = max(0, rowTop)
             
             let clipRect = clipView.bounds

@@ -25,12 +25,14 @@ open class AnimatedTableView: NSTableView
         guard row >= 0, row < numberOfRows else
         {
             log(warning: "Tried to scroll to invalid row \(row).")
+            completionHandler?()
             return false
         }
         
         guard let scrollView = enclosingScrollView else
         {
             log(warning: "Expected enclosing scroll view but found none.")
+            completionHandler?()
             return false
         }
         

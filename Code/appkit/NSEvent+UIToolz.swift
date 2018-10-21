@@ -15,6 +15,7 @@ public extension NSEvent
         case right = 124
         case down = 125
         case up = 126
+        case esc = 53
     }
     
     var cmd: Bool { return modifierFlags.contains(.command) }

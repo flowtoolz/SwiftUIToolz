@@ -122,5 +122,7 @@ open class Window: NSWindow, Observable
     
     // MARK: - Avoid Beep from Unprocessed Keys
     
+    open override func doesNotRecognizeSelector(_ aSelector: Selector!) {}
     open override func noResponder(for eventSelector: Selector) {}
+    open override func keyDown(with event: NSEvent) {}
 }

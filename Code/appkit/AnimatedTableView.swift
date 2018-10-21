@@ -3,6 +3,13 @@ import SwiftyToolz
 
 open class AnimatedTableView: NSTableView
 {
+    open func rowIsVisible(_ row: Int) -> Bool
+    {
+        let clipView = enclosingScrollView?.contentView ?? self
+        
+        return clipView.bounds.contains(rect(ofRow: row))
+    }
+    
     open override func scrollRowToVisible(_ row: Int)
     {
         if !scrollAnimatedTo(row: row)

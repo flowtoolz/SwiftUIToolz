@@ -124,11 +124,4 @@ open class Window: NSWindow, Observable
     
     open override func doesNotRecognizeSelector(_ aSelector: Selector!) {}
     open override func noResponder(for eventSelector: Selector) {}
-    open override func keyDown(with event: NSEvent)
-    {
-        // FIXME: solve this more general, less app specific ...
-        if event.key == .esc { return }
-        
-        super.keyDown(with: event)
-    }
 }

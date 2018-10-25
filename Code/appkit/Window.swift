@@ -54,6 +54,21 @@ open class Window: NSWindow, Observable
     
     // MARK: - Fullscreen
     
+    open override func performKeyEquivalent(with event: NSEvent) -> Bool
+    {
+        let wasHandled = super.performKeyEquivalent(with: event)
+        
+        if !wasHandled,
+            event.type == .keyDown,
+            event.key == .esc
+        {
+            if isFullscreen { toggleFullScreen(nil) }
+            return true
+        }
+        
+        return wasHandled
+    }
+    
     public var isFullscreen: Bool
     {
         return styleMask.contains(.fullScreen)

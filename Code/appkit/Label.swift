@@ -19,6 +19,7 @@ public class Label: NSTextField
         isBezeled = false
         isEditable = false
         isBordered = false
+        font = .system
     }
     
     public required init?(coder: NSCoder) { fatalError() }

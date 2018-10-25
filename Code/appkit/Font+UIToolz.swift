@@ -1,6 +1,14 @@
 import AppKit
 import SwiftyToolz
 
+public extension NSFont
+{
+    static var system: NSFont
+    {
+        return .systemFont(ofSize: NSFont.systemFontSize)
+    }
+}
+
 public extension Font
 {
     var nsFont: NSFont

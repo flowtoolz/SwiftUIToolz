@@ -1,7 +1,8 @@
 import AppKit
+import SwiftObserver
 //import FoundationToolz
 
-open class AppController: NSObject, NSApplicationDelegate
+open class AppController: NSObject, NSApplicationDelegate, Observer
 {
     public init(withMainMenu mainMenu: NSMenu)
     {
@@ -17,6 +18,11 @@ open class AppController: NSObject, NSApplicationDelegate
     open func applicationDidFinishLaunching(_ aNotification: Notification)
     {
         NSApp.activate(ignoringOtherApps: true)
+        
+        observe(Log.shared.latestEntry)
+        {
+            showAlert(with: $0.new)
+        }
         
         //networkReachability.setup()
     }

@@ -26,4 +26,9 @@ open class AppController: NSObject, NSApplicationDelegate, Observer
         
         //networkReachability.setup()
     }
+    
+    public func registerForPushNotifications()
+    {
+        NSApp.registerForRemoteNotifications(matching: [.badge, .sound, .alert])
+    }
 }

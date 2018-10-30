@@ -1,5 +1,5 @@
 import AppKit
-import SwiftyToolz
+import SwiftObserver
 
 open class AnimatedTableView: NSTableView
 {

@@ -2,10 +2,10 @@ import AppKit
 
 public extension NSMenuItem
 {
-    convenience init(with menu: NSMenu)
+    convenience init(submenu: NSMenu)
     {
         self.init()
         
-        submenu = menu
+        self.submenu = submenu
     }
 }

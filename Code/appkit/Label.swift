@@ -2,6 +2,13 @@ import AppKit.NSTextField
 
 public class Label: NSTextField
 {
+    public convenience init(text: String)
+    {
+        self.init(frame: .zero)
+        
+        self.stringValue = text
+    }
+    
     override init(frame frameRect: NSRect)
     {
         super.init(frame: frameRect)

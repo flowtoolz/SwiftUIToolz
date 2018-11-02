@@ -4,7 +4,7 @@ import SwiftObserver
 
 open class AppController: NSObject, NSApplicationDelegate, Observer
 {
-    public init(withMainMenu mainMenu: NSMenu)
+    public init(withMainMenu mainMenu: NSMenu? = nil)
     {
         super.init()
     

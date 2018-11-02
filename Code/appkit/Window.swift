@@ -5,7 +5,7 @@ open class Window: NSWindow, Observable
 {
     // MARK: - Initialization
 
-    public init(with contentViewController: NSViewController?,
+    public init(viewController: NSViewController? = ViewControlller(),
                 color: NSColor = .windowBackgroundColor)
     {
         let windowStyle: StyleMask = [.resizable,
@@ -31,7 +31,7 @@ open class Window: NSWindow, Observable
         
         collectionBehavior = [.managed, .fullScreenPrimary] // required for macOS 10.10
         
-        if let viewController = contentViewController
+        if let viewController = viewController
         {
             self.contentViewController = viewController
             

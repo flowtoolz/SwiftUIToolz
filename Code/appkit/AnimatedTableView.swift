@@ -1,6 +1,7 @@
 import AppKit
 import SwiftObserver
 
+// TODO: make this an NSTableView extension
 open class AnimatedTableView: NSTableView
 {
     open func rowIsVisible(_ row: Int) -> Bool

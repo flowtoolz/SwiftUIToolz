@@ -5,7 +5,7 @@ open class Window: NSWindow, Observable
 {
     // MARK: - Initialization
 
-    public init(viewController: NSViewController? = ViewControlller(),
+    public init(viewController: NSViewController? = ViewController(),
                 color: NSColor = .windowBackgroundColor)
     {
         let windowStyle: StyleMask = [.resizable,

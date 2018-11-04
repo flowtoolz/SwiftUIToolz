@@ -30,6 +30,7 @@
 
     # dependencies
     s.dependency 'GetLaid'
+    s.dependency 'FoundationToolz'
     s.dependency 'SwiftObserver'
     s.dependency 'SwiftyToolz'
    

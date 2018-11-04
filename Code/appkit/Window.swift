@@ -5,8 +5,7 @@ open class Window: NSWindow, Observable
 {
     // MARK: - Initialization
 
-    public init(viewController: NSViewController? = ViewController(),
-                color: NSColor = .windowBackgroundColor)
+    public init(color: NSColor = .windowBackgroundColor)
     {
         let windowStyle: StyleMask = [.resizable,
                                       .titled,
@@ -29,13 +28,15 @@ open class Window: NSWindow, Observable
         
         isReleasedWhenClosed = false
         
-        collectionBehavior = [.managed, .fullScreenPrimary] // required for macOS 10.10
-        
-        if let viewController = viewController
+        // required for macOS 10.10
+        collectionBehavior = [.managed, .fullScreenPrimary]
+    }
+    
+    open override var contentViewController: NSViewController?
+    {
+        didSet
         {
-            self.contentViewController = viewController
-            
-            setFrame(initialFrame, display: false)
+            setFrame(Window.initialFrame, display: false)
         }
     }
     

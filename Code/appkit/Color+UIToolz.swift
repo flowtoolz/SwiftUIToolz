@@ -21,3 +21,21 @@ public extension Color
                        alpha: CGFloat(alpha))
     }
 }
+
+public extension Color.System
+{
+    var nsColor: NSColor
+    {
+        switch self
+        {
+        case .text: return NSColor.textColor
+        case .label: return NSColor.labelColor
+        case .red: return NSColor.systemRed
+        case .orange: return NSColor.systemOrange
+        case .yellow: return NSColor.systemYellow
+        case .green: return NSColor.systemGreen
+        case .blue: return NSColor.systemBlue
+        case .purple: return NSColor.systemPurple
+        }
+    }
+}

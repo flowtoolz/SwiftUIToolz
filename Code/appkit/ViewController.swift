@@ -2,6 +2,8 @@ public class ViewControlller<V: NSView>: NSViewController
 {
     public override func loadView()
     {
-        view = V()
+        view = contentView
     }
+    
+    public let contentView = V()
 }

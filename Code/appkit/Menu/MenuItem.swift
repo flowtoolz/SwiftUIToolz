@@ -54,7 +54,7 @@ public class MenuItem: NSMenuItem, NSMenuItemValidation
     
     // MARK: - Validation
     
-    public override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool
+    public func validateMenuItem(_ menuItem: NSMenuItem) -> Bool
     {
         guard menuItem === self else
         {

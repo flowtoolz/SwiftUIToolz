@@ -2,7 +2,7 @@ import AppKit
 
 open class Menu: NSMenu, NSMenuItemValidation
 {
-    open override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool
+    open func validateMenuItem(_ menuItem: NSMenuItem) -> Bool
     {
         if let id = menuItem.id
         {

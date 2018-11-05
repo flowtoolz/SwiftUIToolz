@@ -42,6 +42,13 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Obs
         window.show()
     }
     
+    open func applicationShouldHandleReopen(_ sender: NSApplication,
+                                            hasVisibleWindows flag: Bool) -> Bool
+    {
+        if !flag { window.show() }
+        return false
+    }
+    
     // MARK: - Window
     
     open func windowDidEndLiveResize(_ notification: Notification)

@@ -1,23 +1,6 @@
 import AppKit
 import SwiftObserver
 
-public extension NSMenuItemValidation where Self: NSMenu
-{
-    public func makeItem(_ title: String,
-                         key: String,
-                         id: String,
-                         modifiers: NSEvent.ModifierFlags = [.command],
-                         action: @escaping () -> Void) -> MenuItem
-    {
-        return MenuItem(title,
-                        key: key,
-                        id: id,
-                        modifiers: modifiers,
-                        validator: self,
-                        action: action)
-    }
-}
-
 public class MenuItem: NSMenuItem, NSMenuItemValidation
 {
     // MARK: - Initialization
@@ -83,9 +66,4 @@ public class MenuItem: NSMenuItem, NSMenuItemValidation
     }
     
     private weak var validator: NSMenuItemValidation?
-}
-
-public extension NSMenuItem
-{
-    public var id: String? { return identifier?.rawValue }
 }

@@ -2,7 +2,7 @@
     
     # meta infos
     s.name             = "UIToolz"
-    s.version          = "1.0.0"
+    s.version          = "1.1.0"
     s.summary          = "Re-usable UI code"
     s.description      = "A collection of re-usable UI code based on UIKit and AppKit"
     s.homepage         = "http://flowtoolz.com"
@@ -13,10 +13,10 @@
     
     # compiler requirements
     s.requires_arc = true
-    s.swift_version = '4.0'
+    s.swift_version = '4.2'
     
     # minimum platform SDKs
-    s.platforms = {:ios => "9.0", :osx => "10.10", :tvos => "9.0"}
+    s.platforms = {:ios => "9.0", :osx => "10.11", :tvos => "9.0"}
 
     # minimum deployment targets
     s.ios.deployment_target  = '9.0'
@@ -24,9 +24,9 @@
     s.tvos.deployment_target = '9.0'
 
     # sources
-    s.ios.source_files = 'Code/uikit/**/*.swift'
-    s.tvos.source_files = 'Code/uikit/**/*.swift'
-    s.osx.source_files = 'Code/appkit/**/*.swift'
+    s.ios.source_files = 'Code/UIKit/**/*.swift'
+    s.tvos.source_files = 'Code/UIKit/**/*.swift'
+    s.osx.source_files = 'Code/AppKit/**/*.swift'
 
     # dependencies
     s.dependency 'GetLaid'

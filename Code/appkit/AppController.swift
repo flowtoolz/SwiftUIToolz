@@ -10,7 +10,7 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Obs
     {
         super.init()
         
-        Log.prefix = "> " + (appName ?? "UIToolz App").uppercased()
+        Log.prefix = "> " + (appName ?? "App").uppercased()
         
         _ = NSApplication.shared // initializes app
     

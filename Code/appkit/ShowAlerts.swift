@@ -9,9 +9,9 @@ public func showAlert(with entry: Log.Entry?)
     
     let title = entry.title ?? entry.level.rawValue.uppercased()
     
-    show(alert: entry.message + "\n\n(\(entry.context))",
-        title: title,
-        style: entry.level.alertStyle)
+    show(alert: entry.message,
+         title: title,
+         style: entry.level.alertStyle)
 }
 
 extension Log.Level

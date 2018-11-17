@@ -3,7 +3,7 @@ import AppKit
 public extension NSMenuItemValidation where Self: NSMenu
 {
     public func makeItem(_ title: String,
-                         key: String,
+                         key: String = "",
                          id: String? = nil,
                          modifiers: NSEvent.ModifierFlags = [.command],
                          action: @escaping () -> Void) -> MenuItem

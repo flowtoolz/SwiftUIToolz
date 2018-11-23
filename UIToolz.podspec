@@ -20,7 +20,7 @@
 
     # minimum deployment targets
     s.ios.deployment_target  = '9.0'
-    s.osx.deployment_target = '10.10'
+    s.osx.deployment_target = '10.11'
     s.tvos.deployment_target = '9.0'
 
     # sources
@@ -31,7 +31,7 @@
     # dependencies
     s.dependency 'GetLaid'
     s.dependency 'FoundationToolz'
-    s.dependency 'SwiftObserver'
-    s.dependency 'SwiftyToolz'
+    s.dependency 'SwiftObserver', '~> 1.4.0'
+    s.dependency 'SwiftyToolz', '~> 1.2.0'
    
 end

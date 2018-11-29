@@ -1,5 +1,6 @@
 import AppKit
 import SwiftObserver
+import SwiftyToolz
 
 public class MenuItem: NSMenuItem, NSMenuItemValidation
 {
@@ -10,7 +11,7 @@ public class MenuItem: NSMenuItem, NSMenuItemValidation
                             id: String? = nil,
                             modifiers: NSEvent.ModifierFlags = [.command],
                             validator: NSMenuItemValidation? = nil,
-                            action: @escaping () -> Void)
+                            action: @escaping Action)
     {
         self.init(title,
                   key: String(key.unicodeScalar),
@@ -25,7 +26,7 @@ public class MenuItem: NSMenuItem, NSMenuItemValidation
                 id: String? = nil,
                 modifiers: NSEvent.ModifierFlags = [.command],
                 validator: NSMenuItemValidation? = nil,
-                action: @escaping () -> Void)
+                action: @escaping Action)
     {
         actionClosure = action
         
@@ -50,7 +51,7 @@ public class MenuItem: NSMenuItem, NSMenuItemValidation
     
     @objc public func performAction() { actionClosure() }
     
-    private let actionClosure: () -> Void
+    private let actionClosure: Action
     
     // MARK: - Validation
     

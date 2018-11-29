@@ -1,11 +1,12 @@
 import AppKit
 import GetLaid
+import SwiftyToolz
 
 public class Button: LayerBackedView
 {
     // MARK: - Initialization
     
-    public convenience init(with action: @escaping () -> Void)
+    public convenience init(with action: @escaping Action)
     {
         self.init(frame: NSZeroRect)
         
@@ -30,7 +31,7 @@ public class Button: LayerBackedView
         action?()
     }
     
-    public var action: (() -> Void)?
+    public var action: Action?
     
     // MARK: - Title
     

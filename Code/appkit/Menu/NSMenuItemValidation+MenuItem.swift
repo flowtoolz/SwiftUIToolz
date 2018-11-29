@@ -1,4 +1,5 @@
 import AppKit
+import SwiftyToolz
 
 public extension NSMenuItemValidation where Self: NSMenu
 {
@@ -6,7 +7,7 @@ public extension NSMenuItemValidation where Self: NSMenu
                          key: String = "",
                          id: String? = nil,
                          modifiers: NSEvent.ModifierFlags = [.command],
-                         action: @escaping () -> Void) -> MenuItem
+                         action: @escaping Action) -> MenuItem
     {
         return MenuItem(title,
                         key: key,

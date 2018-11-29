@@ -1,5 +1,6 @@
 import AppKit
 import SwiftObserver
+import SwiftyToolz
 
 // TODO: make this an NSTableView extension
 open class AnimatedTableView: NSTableView
@@ -21,7 +22,7 @@ open class AnimatedTableView: NSTableView
     
     @discardableResult
     public func scrollAnimatedTo(row: Int,
-                                 completionHandler: (() -> Void)? = nil) -> Bool
+                                 completionHandler: Action? = nil) -> Bool
     {
         guard row >= 0, row < numberOfRows else
         {

@@ -1,5 +1,6 @@
 import AppKit
 import SwiftObserver
+import SwiftyToolz
 
 public extension NSMenu
 {
@@ -11,9 +12,6 @@ public extension NSMenu
             return
         }
         
-        for i in 0 ..< items.count
-        {
-            insertItem(items[i], at: i + index)
-        }
+        items.forEachIndex { insertItem($0, at: $1 + index) }
     }
 }

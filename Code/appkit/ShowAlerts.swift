@@ -1,5 +1,5 @@
 import AppKit
-import SwiftObserver
+import SwiftyToolz
 
 public func showAlert(with entry: Log.Entry?)
 {

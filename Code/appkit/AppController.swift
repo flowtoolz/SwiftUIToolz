@@ -1,8 +1,9 @@
 import AppKit
-import SwiftObserver
 import FoundationToolz
+import SwiftObserver
+import SwiftyToolz
 
-open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Observer
+open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Observer, LogObserver
 {
     // MARK: - Initialization
     
@@ -10,7 +11,8 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Obs
     {
         super.init()
         
-        Log.prefix = "> " + (appName ?? "App").uppercased()
+        Log.shared.prefix = "> " + (appName ?? "App").uppercased()
+        Log.shared.notify(self)
         
         _ = NSApplication.shared // initializes app
     
@@ -19,6 +21,13 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Obs
         NSApp.run()
     }
     
+    public func process(_ entry: Log.Entry)
+    {
+        showAlert(with: entry)
+    }
+    
+    deinit { Log.shared.stopNotifying(self) }
+    
     // MARK: - App Delegate
     
     open func applicationDidFinishLaunching(_ aNotification: Notification)
@@ -26,11 +35,6 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Obs
         NSApp.activate(ignoringOtherApps: true)
         
         observeSystemAppearance()
-        
-        observe(Log.shared.latestEntry)
-        {
-            showAlert(with: $0.new)
-        }
         
         //networkReachability.setup()
     }

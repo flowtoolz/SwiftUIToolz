@@ -1,7 +1,7 @@
 import AppKit
 import SwiftObserver
 
-open class Window: NSWindow, Observable
+open class Window: NSWindow, CustomObservable
 {
     // MARK: - Initialization
 
@@ -51,7 +51,7 @@ open class Window: NSWindow, Observable
                       height: screenSize.height * 0.8)
     }()
     
-    deinit { removeObservers() }
+    deinit { stopObservations() }
     
     // MARK: - Fullscreen
     
@@ -87,7 +87,7 @@ open class Window: NSWindow, Observable
         Window.intendedMainWindowSize <- frame.size
     }
     
-    public static let intendedMainWindowSize = Var<CGSize>()
+    public static let intendedMainWindowSize = Var<CGSize?>()
     
     // MARK: - Show & Hide
     
@@ -129,7 +129,9 @@ open class Window: NSWindow, Observable
     
     // MARK: - Observability
     
-    public var latestUpdate: Event { return .didNothing }
+    public typealias Message = Event
+    
+    public let messenger = Messenger(Event.didNothing)
     
     public enum Event
     {

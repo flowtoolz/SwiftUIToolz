@@ -9,5 +9,5 @@ public extension NSMenuItem
         self.submenu = submenu
     }
     
-    public var id: String? { return identifier?.rawValue }
+    var id: String? { return identifier?.rawValue }
 }

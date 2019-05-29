@@ -4,7 +4,7 @@ import SwiftyToolz
 
 public extension NSMenu
 {
-    public func insert(_ items: [NSMenuItem], at index: Int)
+    func insert(_ items: [NSMenuItem], at index: Int)
     {
         guard index <= numberOfItems else
         {

@@ -3,7 +3,7 @@ import SwiftyToolz
 
 public extension NSMenuItemValidation where Self: NSMenu
 {
-    public func makeItem(_ title: String,
+    func makeItem(_ title: String,
                          key: String = "",
                          id: String? = nil,
                          modifiers: NSEvent.ModifierFlags = [.command],

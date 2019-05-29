@@ -2,7 +2,7 @@
     
     # meta infos
     s.name             = "UIToolz"
-    s.version          = "1.1.0"
+    s.version          = "1.1.1"
     s.summary          = "Re-usable UI code"
     s.description      = "A collection of re-usable UI code based on UIKit and AppKit"
     s.homepage         = "http://flowtoolz.com"
@@ -13,7 +13,7 @@
     
     # compiler requirements
     s.requires_arc = true
-    s.swift_version = '4.2'
+    s.swift_version = '5.0'
     
     # minimum platform SDKs
     s.platforms = {:ios => "9.0", :osx => "10.11", :tvos => "9.0"}

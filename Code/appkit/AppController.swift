@@ -11,8 +11,8 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Obs
     {
         super.init()
         
-        Log.shared.prefix = "> " + (appName ?? "App").uppercased()
-        Log.shared.notify(self)
+        Log.Entry.prefix = (appName ?? "App").uppercased()
+        Log.shared.add(observer: self)
         
         _ = NSApplication.shared // initializes app
     
@@ -21,12 +21,12 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Obs
         NSApp.run()
     }
     
-    public func process(_ entry: Log.Entry)
+    public func receive(_ entry: Log.Entry)
     {
         showAlert(with: entry)
     }
     
-    deinit { Log.shared.stopNotifying(self) }
+    deinit { Log.shared.remove(observer: self) }
     
     // MARK: - App Delegate
     

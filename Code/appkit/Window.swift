@@ -129,13 +129,12 @@ open class Window: NSWindow, CustomObservable
     
     // MARK: - Observability
     
-    public typealias Message = Event
-    
-    public let messenger = Messenger(Event.didNothing)
+    public let messenger = Messenger<Message>()
+    public typealias Message = Event?
     
     public enum Event
     {
-        case didNothing, didChangeVisibility(visible: Bool)
+        case didChangeVisibility(visible: Bool)
     }
     
     // MARK: - Avoid Beep from Unprocessed Keys

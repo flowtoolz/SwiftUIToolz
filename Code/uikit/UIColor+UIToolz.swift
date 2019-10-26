@@ -47,6 +47,13 @@ public extension UIColor
             return self;
         }
     }
+    
+    static var random: UIColor {
+        return .init(red: .random(in: 0 ..< 1),
+                     green: .random(in: 0 ..< 1),
+                     blue: .random(in: 0 ..< 1),
+                     alpha: 1)
+    }
 }
 
 public func UIColorFromRGB(_ rgbValue: UInt) -> UIColor

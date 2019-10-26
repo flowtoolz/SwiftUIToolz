@@ -3,7 +3,7 @@ import FoundationToolz
 import SwiftObserver
 import SwiftyToolz
 
-open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Observer, LogObserver
+open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, LogObserver
 {
     // MARK: - Initialization
     

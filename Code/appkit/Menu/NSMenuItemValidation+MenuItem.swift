@@ -9,11 +9,11 @@ public extension NSMenuItemValidation where Self: NSMenu
                          modifiers: NSEvent.ModifierFlags = [.command],
                          action: @escaping Action) -> MenuItem
     {
-        return MenuItem(title,
-                        key: key,
-                        id: id,
-                        modifiers: modifiers,
-                        validator: self,
-                        action: action)
+        MenuItem(title,
+                 key: key,
+                 id: id,
+                 modifiers: modifiers,
+                 validator: self,
+                 action: action)
     }
 }

@@ -55,7 +55,7 @@ public class ProgressBar: LayerBackedView
             NSAnimationContext.endGrouping()
         }
         
-        get { return widthConstraint?.multiplier ?? 0 }
+        get { widthConstraint?.multiplier ?? 0 }
     }
     
     private func constrainProgressIndicator(with widthFactor: CGFloat = 0)

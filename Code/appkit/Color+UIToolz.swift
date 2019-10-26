@@ -11,14 +11,14 @@ public extension Color
                   Float(nsColor.alphaComponent))
     }
     
-    var cgColor: CGColor { return nsColor.cgColor }
+    var cgColor: CGColor { nsColor.cgColor }
     
     var nsColor: NSColor
     {
-        return NSColor(calibratedRed: CGFloat(red),
-                       green: CGFloat(green),
-                       blue: CGFloat(blue),
-                       alpha: CGFloat(alpha))
+        NSColor(calibratedRed: CGFloat(red),
+                green: CGFloat(green),
+                blue: CGFloat(blue),
+                alpha: CGFloat(alpha))
     }
 }
 

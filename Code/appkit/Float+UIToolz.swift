@@ -2,5 +2,5 @@ import AppKit
 
 public extension Float
 {
-    var cgFloat: CGFloat { return CGFloat(self) }
+    var cgFloat: CGFloat { CGFloat(self) }
 }

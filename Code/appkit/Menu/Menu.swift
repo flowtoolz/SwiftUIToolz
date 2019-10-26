@@ -12,5 +12,5 @@ open class Menu: NSMenu, NSMenuItemValidation
         return true
     }
     
-    open func validateItem(with id: String) -> Bool { return true }
+    open func validateItem(with id: String) -> Bool { true }
 }

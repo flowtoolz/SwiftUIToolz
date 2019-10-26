@@ -72,7 +72,7 @@ open class Window: NSWindow, CustomObservable
     
     public var isFullscreen: Bool
     {
-        return styleMask.contains(.fullScreen)
+        styleMask.contains(.fullScreen)
     }
     
     // MARK: - Manual Sizing

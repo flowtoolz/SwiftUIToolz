@@ -5,7 +5,7 @@ public extension NSFont
 {
     static var system: NSFont
     {
-        return .systemFont(ofSize: NSFont.systemFontSize)
+        .systemFont(ofSize: NSFont.systemFontSize)
     }
 }
 

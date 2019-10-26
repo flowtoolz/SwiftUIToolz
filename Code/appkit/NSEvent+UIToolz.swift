@@ -2,7 +2,7 @@ import AppKit
 
 public extension NSEvent
 {
-    var key: Key { return Key(rawValue: keyCode) ?? .unknown }
+    var key: Key { Key(rawValue: keyCode) ?? .unknown }
     
     enum Key: UInt16
     {
@@ -18,8 +18,8 @@ public extension NSEvent
         case esc = 53
     }
     
-    var cmd: Bool { return modifierFlags.contains(.command) }
-    var alt: Bool { return modifierFlags.contains(.option) }
-    var ctrl: Bool { return modifierFlags.contains(.control) }
-    var shift: Bool { return modifierFlags.contains(.shift) }
+    var cmd: Bool { modifierFlags.contains(.command) }
+    var alt: Bool { modifierFlags.contains(.option) }
+    var ctrl: Bool { modifierFlags.contains(.control) }
+    var shift: Bool { modifierFlags.contains(.shift) }
 }

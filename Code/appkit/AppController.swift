@@ -7,18 +7,10 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Log
 {
     // MARK: - Initialization
     
-    public init(withMainMenu mainMenu: NSMenu? = nil)
-    {
+    public override init() {
         super.init()
-        
         Log.Entry.prefix = (appName ?? "App").uppercased()
         Log.shared.add(observer: self)
-        
-        _ = NSApplication.shared // initializes app
-    
-        NSApp.mainMenu = mainMenu // must be set before delegate
-        NSApp.delegate = self
-        NSApp.run()
     }
     
     public func receive(_ entry: Log.Entry)

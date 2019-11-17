@@ -4,54 +4,36 @@ import SwiftObserver
 open class Window: NSWindow, CustomObservable
 {
     // MARK: - Initialization
-
-    public init(color: NSColor = .windowBackgroundColor)
+    
+    init()
     {
-        let windowStyle: StyleMask = [.resizable,
-                                      .titled,
-                                      //.fullSizeContentView,
-                                      .miniaturizable,
-                                      .closable]
-        
-        let initialFrame = Window.initialFrame
-        
-        Window.intendedMainWindowSize <- initialFrame.size
-
-        super.init(contentRect: initialFrame,
-                   styleMask: windowStyle,
+        super.init(contentRect: NSScreen.initialWindowRect,
+                   styleMask: [.resizable, .titled, .miniaturizable, .closable],
                    backing: .buffered,
                    defer: false)
-    
         titlebarAppearsTransparent = true
         titleVisibility = .hidden
-        backgroundColor = color
-        
+        backgroundColor = .windowBackgroundColor
         isReleasedWhenClosed = false
         
         // required for macOS 10.10
         collectionBehavior = [.managed, .fullScreenPrimary]
+        
+        Window.intendedMainWindowSize <- NSScreen.initialWindowRect.size
     }
+    
+    deinit { stopObservations() }
+    
+    // MARK: - Adjust Content Controller Size to self
     
     open override var contentViewController: NSViewController?
     {
-        didSet
+        willSet
         {
-            setFrame(Window.initialFrame, display: false)
+            newValue?.view.frame.origin = .zero
+            newValue?.view.frame.size = frame.size
         }
     }
-    
-    public static let initialFrame: CGRect =
-    {
-        let screenSize = NSScreen.main?.frame.size ?? CGSize(width: 1280,
-                                                             height: 800)
-        
-        return CGRect(x: screenSize.width * 0.1,
-                      y: screenSize.height  * 0.1,
-                      width: screenSize.width * 0.8,
-                      height: screenSize.height * 0.8)
-    }()
-    
-    deinit { stopObservations() }
     
     // MARK: - Fullscreen
     
@@ -141,4 +123,19 @@ open class Window: NSWindow, CustomObservable
     
     open override func doesNotRecognizeSelector(_ aSelector: Selector!) {}
     open override func noResponder(for eventSelector: Selector) {}
+}
+
+public extension NSScreen {
+    
+    static var initialWindowRect: CGRect
+    {
+        .init(x: size.width * 0.1,
+              y: size.height  * 0.1,
+              width: size.width * 0.8,
+              height: size.height * 0.8)
+    }
+    
+    static var size: CGSize {
+        main?.frame.size ?? CGSize(width: 1920, height: 1080)
+    }
 }

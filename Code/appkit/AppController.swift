@@ -47,21 +47,6 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Log
     
     // MARK: - Window
     
-    open func windowDidEndLiveResize(_ notification: Notification)
-    {
-        window.didEndLiveResize()
-    }
-    
-    open func windowDidEnterFullScreen(_ notification: Notification)
-    {
-        window.didEndLiveResize()
-    }
-    
-    open func windowDidExitFullScreen(_ notification: Notification)
-    {
-        window.didEndLiveResize()
-    }
-    
     public let window = Window()
     
     // MARK: - Dark Mode

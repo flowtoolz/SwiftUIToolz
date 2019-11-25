@@ -18,22 +18,9 @@ open class Window: NSWindow, CustomObservable
         
         // required for macOS 10.10
         collectionBehavior = [.managed, .fullScreenPrimary]
-        
-        Window.intendedMainWindowSize <- NSScreen.initialWindowRect.size
     }
     
     deinit { stopObservations() }
-    
-    // MARK: - Adjust Content Controller Size to self
-    
-    open override var contentViewController: NSViewController?
-    {
-        willSet
-        {
-            newValue?.view.frame.origin = .zero
-            newValue?.view.frame.size = frame.size
-        }
-    }
     
     // MARK: - Fullscreen
     
@@ -56,20 +43,6 @@ open class Window: NSWindow, CustomObservable
     {
         styleMask.contains(.fullScreen)
     }
-    
-    // MARK: - Manual Sizing
-    
-    public func didEndLiveResize()
-    {
-        guard Window.intendedMainWindowSize.value != frame.size else
-        {
-            return
-        }
-        
-        Window.intendedMainWindowSize <- frame.size
-    }
-    
-    public static let intendedMainWindowSize = Var<CGSize?>()
     
     // MARK: - Show & Hide
     

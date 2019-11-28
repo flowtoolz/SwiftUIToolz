@@ -1,7 +1,7 @@
 import AppKit
 import SwiftObserver
 
-open class Window: NSWindow, CustomObservable
+open class Window: NSWindow, Observable
 {
     // MARK: - Initialization
     
@@ -19,8 +19,6 @@ open class Window: NSWindow, CustomObservable
         // required for macOS 10.10
         collectionBehavior = [.managed, .fullScreenPrimary]
     }
-    
-    deinit { stopObservations() }
     
     // MARK: - Fullscreen
     
@@ -84,8 +82,7 @@ open class Window: NSWindow, CustomObservable
     
     // MARK: - Observability
     
-    public let messenger = Messenger<Message>()
-    public typealias Message = Event?
+    public let messenger = Messenger<Event?>()
     
     public enum Event
     {

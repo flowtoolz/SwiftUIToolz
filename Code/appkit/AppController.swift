@@ -3,7 +3,7 @@ import FoundationToolz
 import SwiftObserver
 import SwiftyToolz
 
-open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, LogObserver
+open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Observer, LogObserver
 {
     // MARK: - Initialization
     
@@ -84,4 +84,8 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Log
     {
         NSApp.registerForRemoteNotifications(matching: [.badge, .sound, .alert])
     }
+    
+    // MARK: - Observer
+    
+    public let receiver = Receiver()
 }

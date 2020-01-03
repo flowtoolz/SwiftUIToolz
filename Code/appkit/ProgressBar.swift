@@ -1,4 +1,5 @@
 import SwiftyToolz
+import GetLaid
 
 public class ProgressBar: LayerBackedView
 {
@@ -48,7 +49,7 @@ public class ProgressBar: LayerBackedView
             
             let cappedCGFloat = max(0.0, min(1.0, newValue))
 
-            constrainIndicator(widthFactor: cappedCGFloat)
+            constrainIndicatorWidth(with: cappedCGFloat)
             
             layoutSubtreeIfNeeded()
             
@@ -60,17 +61,13 @@ public class ProgressBar: LayerBackedView
     
     private func constrainProgressIndicator(with widthFactor: CGFloat = 0)
     {
-        progressIndicator.constrainTop(to: self)
-        progressIndicator.constrainLeft(to: self)
-        progressIndicator.constrainBottom(to: self)
-
-        constrainIndicator(widthFactor: widthFactor)
+        progressIndicator >> allButRight
+        constrainIndicatorWidth(with: widthFactor)
     }
     
-    private func constrainIndicator(widthFactor: CGFloat)
+    private func constrainIndicatorWidth(with widthFactor: CGFloat)
     {
-        widthConstraint = progressIndicator.constrainWidth(to: widthFactor,
-                                                           of: self)
+        widthConstraint = (progressIndicator >> width.at(widthFactor)).first
     }
     
     private var widthConstraint: NSLayoutConstraint?

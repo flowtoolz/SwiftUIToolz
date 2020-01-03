@@ -50,9 +50,9 @@ public class Button: LayerBackedView
     
     private func constrainTitleLabel()
     {
-        titleLabel.constrainLeft(to: self, offset: 10)
-        titleLabel.constrainRight(to: self, offset: -10)
-        titleLabel.constrainCenterY(to: self)
+        titleLabel >> left.offset(10)
+        titleLabel >> right.offset(-10)
+        titleLabel >> centerY
     }
     
     public lazy var titleLabel: Label =

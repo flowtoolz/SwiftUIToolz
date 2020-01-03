@@ -31,7 +31,7 @@
     # dependencies
     s.dependency 'GetLaid'
     s.dependency 'FoundationToolz'
-    s.dependency 'SwiftObserver', '~> 5.0'
+    s.dependency 'SwiftObserver', '~> 6.0'
     s.dependency 'SwiftyToolz', '~> 1.4'
    
 end

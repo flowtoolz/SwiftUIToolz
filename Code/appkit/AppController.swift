@@ -5,12 +5,19 @@ import SwiftyToolz
 
 open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Observer, LogObserver
 {
-    // MARK: - Initialization
+    // MARK: - Life Cycle
     
-    public override init() {
+    public init(appView: NSView, appMenu: NSMenu = MainMenu())
+    {
         super.init()
+        
         Log.Entry.prefix = (appName ?? "App").uppercased()
         Log.shared.add(observer: self)
+        
+        window.contentView = appView
+        
+        app.mainMenu = appMenu // must be set before delegate
+        app.delegate = self
     }
     
     public func receive(_ entry: Log.Entry)
@@ -20,7 +27,14 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Obs
     
     deinit { Log.shared.remove(observer: self) }
     
-    // MARK: - App Delegate
+    // MARK: - App Life Cycle
+    
+    public func startApp()
+    {
+        app.run()
+    }
+    
+    private var app: NSApplication { .shared }
     
     open func applicationDidFinishLaunching(_ aNotification: Notification)
     {

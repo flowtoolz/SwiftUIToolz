@@ -47,7 +47,7 @@ public class ProgressBar: LayerBackedView
                 progressIndicator.removeConstraint(constraint)
             }
             
-            let cappedCGFloat = max(0.0, min(1.0, newValue))
+            let cappedCGFloat = Swift.max(0.0, min(1.0, newValue))
 
             constrainIndicatorWidth(with: cappedCGFloat)
             

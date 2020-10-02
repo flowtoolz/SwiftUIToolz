@@ -1,5 +1,6 @@
-import SwiftyToolz
+import AppKit
 import GetLaid
+import SwiftyToolz
 
 public class ProgressBar: LayerBackedView
 {

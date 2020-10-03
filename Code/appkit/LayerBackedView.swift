@@ -14,7 +14,7 @@ open class LayerBackedView: NSView
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    required public init?(coder decoder: NSCoder) { fatalError() }
+    required public init?(coder decoder: NSCoder) { nil }
     
     public var backgroundColor: Color
     {

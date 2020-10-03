@@ -17,5 +17,5 @@ open class Icon: NSImageView
         imageScaling = .scaleProportionallyUpOrDown
     }
     
-    public required init?(coder: NSCoder) { fatalError() }
+    public required init?(coder: NSCoder) { nil }
 }

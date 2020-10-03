@@ -28,5 +28,5 @@ public class Label: NSTextField
         isBordered = false
     }
     
-    public required init?(coder: NSCoder) { fatalError() }
+    public required init?(coder: NSCoder) { nil }
 }

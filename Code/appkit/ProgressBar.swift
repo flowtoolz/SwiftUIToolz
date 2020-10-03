@@ -15,7 +15,7 @@ public class ProgressBar: LayerBackedView
         constrainProgressIndicator()
     }
     
-    public required init?(coder decoder: NSCoder) { fatalError() }
+    public required init?(coder decoder: NSCoder) { nil }
     
     // MARK: - Progress Indicator
     

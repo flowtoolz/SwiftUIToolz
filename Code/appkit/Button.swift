@@ -20,7 +20,7 @@ public class Button: LayerBackedView
         constrainTitleLabel()
     }
     
-    public required init?(coder decoder: NSCoder) { fatalError() }
+    public required init?(coder decoder: NSCoder) { nil }
     
     // MARK: - Interaction
     

@@ -11,7 +11,7 @@ open class ScrollTable<T: NSTableView>: NSScrollView
         horizontalScrollElasticity = .none
     }
     
-    public required init?(coder: NSCoder) { fatalError() }
+    public required init?(coder: NSCoder) { nil }
     
     public let table = T()
 }

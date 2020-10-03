@@ -6,7 +6,6 @@ open class MainMenu: Menu
     public init()
     {
         super.init(title: "Menu Bar")
-        
         addItem(NSMenuItem(submenu: appMenu))
     }
     
@@ -18,16 +17,14 @@ open class MainMenu: Menu
     {
         init()
         {
-            super.init(title: "Application Menu")
+            let appDisplayName = appName ?? "Application"
             
-            var namePostfix = ""
+            super.init(title: appDisplayName + " Menu")
             
-            if let name = appName { namePostfix = " " + name }
-            
-            addItem(withTitle: "Hide" + namePostfix,
+            addItem(withTitle: "Hide " + appDisplayName,
                     action: #selector(NSApplication.hide(_:)),
                     keyEquivalent: "h")
-            addItem(withTitle: "Quit" + namePostfix,
+            addItem(withTitle: "Quit " + appDisplayName,
                     action: #selector(NSApplication.terminate(_:)),
                     keyEquivalent: "q")
         }

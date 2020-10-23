@@ -12,7 +12,6 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Obs
         super.init()
         
         ReadableError.readableMessageForError = { $0.localizedDescription }
-        Log.Entry.prefix = (appName ?? "App").uppercased()
         Log.shared.add(observer: self)
         
         window.contentView = appView

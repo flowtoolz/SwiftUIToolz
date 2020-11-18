@@ -20,11 +20,6 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Obs
         app.delegate = self
     }
     
-    public func receive(_ entry: Log.Entry)
-    {
-        showAlert(with: entry)
-    }
-    
     deinit { Log.shared.remove(observer: self) }
     
     // MARK: - App Life Cycle
@@ -38,8 +33,6 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Obs
     
     open func applicationDidFinishLaunching(_ aNotification: Notification)
     {
-        NSApp.activate(ignoringOtherApps: true)
-        
         observeSystemAppearance()
         
         //networkReachability.setup()
@@ -62,6 +55,13 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Obs
     // MARK: - Window
     
     public let window = Window()
+    
+    // MARK: - Alerts via Log
+    
+    public func receive(_ entry: Log.Entry)
+    {
+        showAlert(with: entry)
+    }
     
     // MARK: - Dark Mode
     

@@ -7,14 +7,13 @@ open class Window: NSWindow, Observable
     
     init()
     {
-        super.init(contentRect: NSScreen.initialWindowRect,
-                   styleMask: [.resizable, .titled, .miniaturizable, .closable],
+        super.init(contentRect: .initialWindowRect,
+                   styleMask: [.resizable, .titled, .miniaturizable, .closable, .fullSizeContentView],
                    backing: .buffered,
                    defer: false)
         titlebarAppearsTransparent = true
-        titleVisibility = .hidden
-        backgroundColor = .windowBackgroundColor
         isReleasedWhenClosed = false
+        center()
         
         // required for macOS 10.10
         collectionBehavior = [.managed, .fullScreenPrimary]
@@ -95,17 +94,21 @@ open class Window: NSWindow, Observable
     open override func noResponder(for eventSelector: Selector) {}
 }
 
-public extension NSScreen {
-    
+fileprivate extension CGRect
+{
     static var initialWindowRect: CGRect
     {
-        .init(x: size.width * 0.1,
-              y: size.height  * 0.1,
-              width: size.width * 0.8,
-              height: size.height * 0.8)
+        .init(x: 0,
+              y: 0,
+              width: NSScreen.size.width * 0.7,
+              height: NSScreen.size.height * 0.7)
     }
-    
-    static var size: CGSize {
+}
+
+public extension NSScreen
+{
+    static var size: CGSize
+    {
         main?.frame.size ?? CGSize(width: 1920, height: 1080)
     }
 }

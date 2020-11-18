@@ -10,7 +10,7 @@ let codePath = "Code/uikit"
 
 let package = Package(
     name: "UIToolz",
-    platforms: [.iOS(.v9), .tvOS(.v9), .macOS(.v10_11)],
+    platforms: [.iOS(.v9), .tvOS(.v9), .macOS(.v10_12)],
     products: [
         .library(name: "UIToolz",
                  targets: ["UIToolz"]),

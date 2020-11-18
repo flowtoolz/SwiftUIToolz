@@ -17,8 +17,6 @@ public extension Font
         {
         case .system(let size, let weight):
         
-            if #available(OSX 10.11, *)
-            {
                 let nsFontWeight: NSFont.Weight =
                 {
                     switch weight
@@ -35,11 +33,6 @@ public extension Font
                 }()
                 
                 return .systemFont(ofSize: CGFloat(size), weight: nsFontWeight)
-            }
-            else
-            {
-                return .systemFont(ofSize: CGFloat(size))
-            }
         
         case .named(let name, let size):
             

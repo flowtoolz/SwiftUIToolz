@@ -12,8 +12,10 @@ let package = Package(
     name: "UIToolz",
     platforms: [.iOS(.v9), .tvOS(.v9), .macOS(.v10_12)],
     products: [
-        .library(name: "UIToolz",
-                 targets: ["UIToolz"]),
+        .library(
+            name: "UIToolz",
+            targets: ["UIToolz"]
+        ),
     ],
     dependencies: [
         .package(
@@ -26,21 +28,23 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/flowtoolz/SwiftObserver.git",
-            .upToNextMajor(from: "6.0.0")
+            .branch("master")
         ),
         .package(
             url: "https://github.com/flowtoolz/SwiftyToolz.git",
-            .upToNextMajor(from: "1.5.5")
+            .branch("master")
         ),
     ],
     targets: [
-        .target(name: "UIToolz",
-                dependencies: [
-			"GetLaid",
-			"FoundationToolz",
-			"SwiftObserver",
-			"SwiftyToolz",
-		],
-        path: codePath),
+        .target(
+            name: "UIToolz",
+            dependencies: [
+                "GetLaid",
+                "FoundationToolz",
+                "SwiftObserver",
+                "SwiftyToolz",
+            ],
+            path: codePath
+        ),
     ]
 )

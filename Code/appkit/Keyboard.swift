@@ -4,7 +4,7 @@ import SwiftyToolz
 
 public let keyboard = Keyboard()
 
-public class Keyboard: Observable
+public class Keyboard: SwiftObserver.ObservableObject
 {
     fileprivate init()
     {

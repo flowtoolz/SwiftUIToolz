@@ -1,7 +1,7 @@
 import AppKit
 import SwiftObserver
 
-open class Window: NSWindow, Observable
+open class Window: NSWindow, SwiftObserver.ObservableObject
 {
     // MARK: - Initialization
     

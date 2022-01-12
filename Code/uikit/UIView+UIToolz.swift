@@ -250,4 +250,56 @@ public extension UIView
             subview.removeFromSuperview()
         }
     }
+    
+    // MARK: - Animate
+    
+    func animate(from oldConstraints: [NSLayoutConstraint],
+                 to newConstraints: [NSLayoutConstraint],
+                 inSeconds seconds: TimeInterval = 0.3,
+                 completion: (() -> Void)? = nil) {
+        layoutIfNeeded()
+        UIView.animate(withDuration: seconds,
+                       animations: {
+                           NSLayoutConstraint.deactivate(oldConstraints)
+                           NSLayoutConstraint.activate(newConstraints)
+                           self.layoutIfNeeded()
+                       },
+                       completion: { _ in completion?() })
+    }
+    
+    func fadeOutShadow() {
+        let animation = CABasicAnimation(keyPath: "shadowOpacity")
+        animation.fromValue = layer.shadowOpacity
+        animation.toValue = 0.0
+        animation.duration = 0.1
+        layer.add(animation, forKey: animation.keyPath)
+        layer.shadowOpacity = 0.0
+    }
+    
+    func fadeInShadow(opacity: Float) {
+        let animation = CABasicAnimation(keyPath: "shadowOpacity")
+        animation.fromValue = 0.0
+        animation.toValue = opacity
+        animation.duration = 0.1
+        layer.add(animation, forKey: animation.keyPath)
+        layer.shadowOpacity = opacity
+    }
+    
+    func fadeOut(duration: TimeInterval = 0.1) {
+        UIView.animate(withDuration: duration,
+                       delay: 0,
+                       options: [.beginFromCurrentState],
+                       animations: { self.alpha = 0 },
+                       completion: { _ in self.hide() })
+    }
+    
+    func fadeIn(duration: TimeInterval = 0.1) {
+        alpha = 0
+        show()
+        UIView.animate(withDuration: duration,
+                       delay: 0,
+                       options: [.beginFromCurrentState],
+                       animations: { self.alpha = 1 },
+                       completion: nil)
+    }
 }

@@ -8,9 +8,5 @@ DerivedData/
 *.pbxuser
 xcuserdata/
 
-### carthage
-Checkouts/
-Build/
-
-### cocoapods
-Pods/
+### SPM
+Package.resolved

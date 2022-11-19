@@ -2,6 +2,7 @@ import AppKit
 import GetLaid
 import SwiftyToolz
 
+@available(macOS 11, *)
 public class ProgressBar: LayerBackedView
 {
     // MARK: - Initialization
@@ -9,9 +10,7 @@ public class ProgressBar: LayerBackedView
     override init(frame frameRect: NSRect)
     {
         super.init(frame: frameRect)
-        
-        backgroundColor = Color(1.0, 0.0, 0.0)
-        
+        set(backgroundColor: .rgb(1.0, 0.0, 0.0))
         constrainProgressIndicator()
     }
     
@@ -19,17 +18,9 @@ public class ProgressBar: LayerBackedView
     
     // MARK: - Progress Indicator
     
-    public var progressColor: Color
+    public func set(progressColor: Color)
     {
-        set
-        {
-            progressIndicator.backgroundColor = newValue
-        }
-        
-        get
-        {
-            return progressIndicator.backgroundColor
-        }
+        progressIndicator.set(backgroundColor: progressColor)
     }
     
     public var progress: CGFloat
@@ -77,7 +68,7 @@ public class ProgressBar: LayerBackedView
     {
         let view = addForAutoLayout(LayerBackedView())
         
-        view.backgroundColor = Color(0.0, 1.0, 0.0)
+        view.set(backgroundColor: .rgb(0.0, 1.0, 0.0))
         
 //        view.shadow = NSShadow()
 //        view.layer?.shadowColor = NSColor.black.cgColor

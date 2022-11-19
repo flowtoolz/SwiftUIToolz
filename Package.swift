@@ -1,4 +1,4 @@
-// swift-tools-version:5.4
+// swift-tools-version:5.7
 
 import PackageDescription
 
@@ -10,7 +10,7 @@ let codePath = "Code/uikit"
 
 let package = Package(
     name: "UIToolz",
-    platforms: [.iOS(.v12), .tvOS(.v12), .macOS(.v10_14)],
+    platforms: [.iOS(.v12), .tvOS(.v12), .macOS(.v10_15)],
     products: [
         .library(
             name: "UIToolz",
@@ -19,26 +19,31 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/flowtoolz/GetLaid.git",
-            .branch("master")
+            url: "https://github.com/flowtoolz/SwiftUIToolz.git",
+            exact: "0.1.2"
         ),
         .package(
-            url: "https://github.com/flowtoolz/FoundationToolz.git",
-            .branch("master")
+            url: "https://github.com/flowtoolz/GetLaid.git",
+            branch: "master"
         ),
         .package(
             url: "https://github.com/codeface-io/SwiftObserver.git",
-            .branch("master")
+            exact: "7.0.4"
+        ),
+        .package(
+            url: "https://github.com/flowtoolz/FoundationToolz.git",
+            exact: "0.1.2"
         ),
         .package(
             url: "https://github.com/flowtoolz/SwiftyToolz.git",
-            .branch("master")
+            exact: "0.2.0"
         ),
     ],
     targets: [
         .target(
             name: "UIToolz",
             dependencies: [
+                "SwiftUIToolz",
                 "GetLaid",
                 "FoundationToolz",
                 "SwiftObserver",

@@ -1,12 +1,3 @@
-### building
-build/
-DerivedData/
-.build
-.DS_Store
-
-### settings
-*.pbxuser
-xcuserdata/
-
-### SPM
+.build/
+.swiftpm/
 Package.resolved

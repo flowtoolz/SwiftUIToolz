@@ -24,7 +24,7 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/flowtoolz/GetLaid.git",
-            branch: "master"
+            exact: "4.0.0"
         ),
         .package(
             url: "https://github.com/codeface-io/SwiftObserver.git",

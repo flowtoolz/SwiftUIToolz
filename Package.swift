@@ -2,12 +2,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "UIToolz",
+    name: "SwiftUIToolz",
     platforms: [.macOS(.v10_15)],
     products: [
         .library(
-            name: "UIToolz",
-            targets: ["UIToolz"]
+            name: "SwiftUIToolz",
+            targets: ["SwiftUIToolz"]
         ),
     ],
     dependencies: [
@@ -34,7 +34,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "UIToolz",
+            name: "SwiftUIToolz",
             dependencies: [
                 "SwiftUIToolzOLD",
                 "GetLaid",

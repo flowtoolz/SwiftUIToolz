@@ -19,8 +19,8 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/flowtoolz/SwiftUIToolz.git",
-            exact: "0.1.2"
+            url: "https://github.com/flowtoolz/SwiftUIToolzOLD.git",
+            exact: "0.3.0"
         ),
         .package(
             url: "https://github.com/flowtoolz/GetLaid.git",

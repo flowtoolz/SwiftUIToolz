@@ -1,16 +1,9 @@
 // swift-tools-version:5.7
-
 import PackageDescription
-
-#if os(macOS)
-let codePath = "Code/appkit"
-#else
-let codePath = "Code/uikit"
-#endif
 
 let package = Package(
     name: "UIToolz",
-    platforms: [.iOS(.v12), .tvOS(.v12), .macOS(.v10_15)],
+    platforms: [.macOS(.v10_15)],
     products: [
         .library(
             name: "UIToolz",
@@ -49,7 +42,7 @@ let package = Package(
                 "SwiftObserver",
                 "SwiftyToolz",
             ],
-            path: codePath
+            path: "Code"
         ),
     ]
 )

@@ -43,7 +43,7 @@ let package = Package(
         .target(
             name: "UIToolz",
             dependencies: [
-                "SwiftUIToolz",
+                "SwiftUIToolzOLD",
                 "GetLaid",
                 "FoundationToolz",
                 "SwiftObserver",

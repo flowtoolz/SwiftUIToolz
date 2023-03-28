@@ -3,11 +3,9 @@ import SwiftyToolz
 
 public func showAlert(with entry: Log.Entry?)
 {
-    guard let entry = entry,
-        entry.forUser,
-        entry.level != .off else { return }
+    guard let entry = entry, entry.forUser else { return }
     
-    let title = entry.title ?? entry.level.rawValue.uppercased()
+    let title = entry.title ?? entry.level.displayName
     
     show(alert: entry.message,
          title: title,
@@ -16,11 +14,21 @@ public func showAlert(with entry: Log.Entry?)
 
 extension Log.Level
 {
+    var displayName: String
+    {
+        switch self
+        {
+        case .info, .verbose: return "Info"
+        case .warning: return "Warning"
+        case .error: return "Error"
+        }
+    }
+    
     var alertStyle: NSAlert.Style
     {
         switch self
         {
-        case .info, .off: return NSAlert.Style.informational
+        case .info, .verbose: return NSAlert.Style.informational
         case .warning: return NSAlert.Style.warning
         case .error: return NSAlert.Style.critical
         }

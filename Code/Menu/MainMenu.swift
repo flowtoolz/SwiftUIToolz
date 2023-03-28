@@ -17,7 +17,7 @@ open class MainMenu: Menu
     {
         init()
         {
-            let appDisplayName = AppInformation.name ?? "Application"
+            let appDisplayName = Bundle.main.name ?? "Application"
             
             super.init(title: appDisplayName + " Menu")
             

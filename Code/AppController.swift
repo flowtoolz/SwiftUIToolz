@@ -3,7 +3,7 @@ import FoundationToolz
 import SwiftObserver
 import SwiftyToolz
 
-open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Observer, LogObserver
+open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Observer
 {
     // MARK: - Life Cycle
     
@@ -11,8 +11,10 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Obs
     {
         super.init()
         
-        ReadableError.readableMessageForError = { $0.localizedDescription }
         Log.shared.add(observer: self)
+        {
+            showAlert(with: $0)
+        }
         
         window.contentView = appView
         
@@ -55,13 +57,6 @@ open class AppController: NSObject, NSApplicationDelegate, NSWindowDelegate, Obs
     // MARK: - Window
     
     public let window = Window()
-    
-    // MARK: - Alerts via Log
-    
-    public func receive(_ entry: Log.Entry)
-    {
-        showAlert(with: entry)
-    }
     
     // MARK: - Dark Mode
     

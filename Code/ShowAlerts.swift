@@ -14,16 +14,6 @@ public func showAlert(with entry: Log.Entry?)
 
 extension Log.Level
 {
-    var displayName: String
-    {
-        switch self
-        {
-        case .info, .verbose: return "Info"
-        case .warning: return "Warning"
-        case .error: return "Error"
-        }
-    }
-    
     var alertStyle: NSAlert.Style
     {
         switch self
